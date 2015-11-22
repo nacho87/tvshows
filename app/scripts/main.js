@@ -46,7 +46,6 @@ $(function(){
       success: function(res){
         $loader.remove();
         $tvShows.find('.tv-show').remove();
-        console.log(res)
         var shows = res.map(function(el){
           return el.show;
         });
