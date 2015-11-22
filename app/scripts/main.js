@@ -22,7 +22,7 @@ $(function(){
   function renderShows(shows){
     shows.forEach(function(show){
       var article = template
-        .replace(':image:', show.image.medium)
+        .replace(':image:', show.image ? show.image.medium : '')
         .replace(':name:', show.name)
         .replace(':summary:', show.summary)
         .replace(':img alt:', show.name + 'Banner');
@@ -46,6 +46,7 @@ $(function(){
       success: function(res){
         $loader.remove();
         $tvShows.find('.tv-show').remove();
+        console.log(res)
         var shows = res.map(function(el){
           return el.show;
         });
